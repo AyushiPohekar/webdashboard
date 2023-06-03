@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API } from '../../global';
 
 import { useNavigate } from 'react-router-dom';
+import TransReplyForm from './TransReplyForm';
 
 
 const TransRecievedMsg = () => {
@@ -51,6 +52,9 @@ const length=recivedmessages?.messages?.length;
     <div class="col">
      ManufacturerName
     </div>
+    {/* <div class="col">
+     Button
+    </div> */}
   
   </div>
 </div>
@@ -66,12 +70,15 @@ const length=recivedmessages?.messages?.length;
 <div className='container text-center'>
 {recivedmessages?.messages?.map((item) => (
     <div class="row maprow">
-    <div class="col"  onClick={()=>navigate(`/transporter/${item.orderID}`)} style={{cursor:"pointer"}}>
+    <div class="col"  onClick={()=>navigate(`/transporter/recieved/${item.orderID}`)} style={{cursor:"pointer"}}>
     {item.orderID}
     </div>
     <div class="col">
-    {item.sender.username}
+    {item?.sender?.username}
     </div>
+    {/* <div class="col">
+   <button onClick={()=>navigate(`/transporter/reply/${item.orderID}`)}>Reply</button>
+    </div> */}
     
     <hr className='mt-2'/>
   </div>

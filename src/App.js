@@ -12,7 +12,11 @@ import MessagesRecieved from './components/Manufacturer/MessagesRecieved';
 import ManuMsgSent from './components/Manufacturer/ManuMsgSent';
 import ManuCreateMsg from './components/Manufacturer/ManuCreateMsg';
 import Details from './components/Manufacturer/Details';
-import TransRecievedDetails from './components/Transporter/TransRecievedDetails';
+
+import TransDetailsRecMsg from './components/Transporter/TransDetailsRecMsg';
+import TransDetailsSentMsg from './components/Transporter/TransDetailsSentMsg';
+import TransSentMsg from './components/Transporter/TransSentMsg';
+import TransReplyForm from './components/Transporter/TransReplyForm';
 
 function App() {
 const [auth,setAuth]=useAuth()
@@ -31,7 +35,10 @@ const [auth,setAuth]=useAuth()
       <Route path="/manufacturer/:orderId" element={<Details/>}/>
       
       <Route path="/transporter" element={<Transporter/>}/>
-      <Route path="/transporter/recieved/:orderId" element={<TransRecievedDetails/>}/>
+      <Route path="/transporter/reply" element={<TransReplyForm/>}/>
+      <Route path="/transporter/sent" element={<TransSentMsg/>}/>
+      <Route path="/transporter/recieved/:orderId" element={<TransDetailsRecMsg/>}/>
+      <Route path="/transporter/sent/:orderID" element={<TransDetailsSentMsg/>}/>
      </Routes>
      
     </div>
