@@ -2,13 +2,14 @@
 import React, { useState } from 'react';
 import "./signup.css";
 import { API } from '../../global';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
-
+ const navigate=useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
     
@@ -25,7 +26,7 @@ const Register = () => {
     const data = await response.json();
 
     if (response.ok) {
-      // Registration successful, redirect to login page or perform any desired action
+      navigate("/login");
       console.log(data.message);
 
     } else {
