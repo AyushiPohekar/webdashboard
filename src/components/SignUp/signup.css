@@ -4,5 +4,41 @@
 #041562----darkblue */
 
 .SignUpContainer{
-    background-color:#DA1212 ;
+    width: 40%;
+    height:max-content;
+    background-color: #EA5455;
+  margin: auto auto;
+  margin-top: 5%;
+  padding: 4rem 0;
+  -webkit-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+}
+.SignUpContainer form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    gap: 1rem;
+}
+.SignUpContainer form input{
+    padding:8px;
+    border-radius: 3px;
+    border: none;
+}
+.SignUpContainer form select{
+    padding:8px;
+    border-radius: 3px;
+    border: none;
+}
+.SignUpContainer form button{
+    width: max-content;
+    margin: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #002B5B;
+    color: white;
+    font-weight: 700;
+    font-size: large;
 }

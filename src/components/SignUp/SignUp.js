@@ -2,13 +2,14 @@
 import React, { useState } from 'react';
 import "./signup.css";
 import { API } from '../../global';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
+  const [address, setAddress] = useState('');
  const navigate=useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const Register = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password,email, role }),
+      body: JSON.stringify({ username, password,email, role,address}),
     });
 
     const data = await response.json();
@@ -44,17 +45,24 @@ const Register = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+    
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+      />
+        <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+        <input
+        type="text"
+        placeholder="Enter Address"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
       />
       <select value={role} onChange={(e) => setRole(e.target.value)}>
         <option value="">Select Role</option>
@@ -63,6 +71,7 @@ const Register = () => {
       </select>
       <button type="submit">Register</button>
     </form>
+    <div className='bottomline'>Already have an account?Please  <Link to={"/login"}>Login</Link></div>
     </div>
   );
 };

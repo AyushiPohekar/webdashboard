@@ -1,0 +1,82 @@
+.MessageRecievedContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ordersrecieved {
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.titleContainer {
+  background-color: #ea5455;
+  color: white;
+  font-weight: 500;
+  font-size: larger;
+}
+
+.maprow {
+  padding: 1rem;
+}
+.logoutbtn {
+  width: max-content;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #002b5b;
+  color: white;
+  font-weight: 700;
+  font-size: large;
+}
+.mainnav {
+  background-color: #ea5455;
+}
+.mainnavbrand {
+  color: #002b5b;
+  font-weight: 800;
+  font-style: normal;
+}
+.detailsContainer {
+  background-color: #ea5455;
+  height: 70%;
+  width: 50%;
+  margin: auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 15px;
+  padding: 1rem;
+}
+.detailsinnercontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.title {
+  flex: 4;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  padding: 0.5rem 1rem;
+}
+.content {
+  flex: 8;
+  background-color: white;
+  margin: 0 1rem;
+  border-radius: 5px;
+  display: flex;
+  padding: 0.5rem 1rem;
+  width: 60%;
+  overflow: scroll;
+}
+.Pushbtn {
+  width: max-content;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #002b5b;
+  color: white;
+  font-weight: 700;
+  font-size: large;
+}

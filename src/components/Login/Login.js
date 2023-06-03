@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useAuth } from '../../Context/Auth';
 import axios from 'axios';
 import { API } from '../../global';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./Login.css"
 const Login = () => {
     const navigate=useNavigate();
     const [email, setEmail] = useState("");
@@ -11,6 +13,9 @@ const Login = () => {
     const [auth, setAuth] = useAuth();
 
 const handleLogin=async(e)=>{
+
+
+  
     
     e.preventDefault();
     try {
@@ -19,7 +24,7 @@ const handleLogin=async(e)=>{
           password,
         });
         if (res && res.data.success) {
-        //   toast.success(res.data && res.data.message);
+         toast.success(res.data && res.data.message);
           setAuth({
             ...auth,
             user: res.data.user,
@@ -34,35 +39,38 @@ const handleLogin=async(e)=>{
           }
          
         } else {
-        //   toast.error(res.data.message);
+         toast.error(res.data.message);
         }
       } catch (error) {
         console.log(error);
-        // toast.error("Something went wrong");
+        toast.error(error.response?.data?.message);
       }
     };
 
     
     
   return (
-    <div>
+    <div className='AuthContainer'>
     <form onSubmit={handleLogin}>
     
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+  
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+          <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
     
       <button type="submit">Login</button>
     </form>
+    <div className='bottomline'>Are you new?Please  <Link to={"/signup"}>Register</Link></div>
+    <ToastContainer />
     </div>
   );
 }

@@ -1,8 +1,14 @@
-.App {
-  text-align: center;
-}
 
 /* #EA5455--red
 #E4DCCF--skin
 #F9F5EB--lightskin
 #002B5B--blue */
+
+body{
+  background-color:#E4DCCF ;
+ 
+}
+.App{
+ 
+  height: 100vh;
+}
