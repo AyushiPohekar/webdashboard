@@ -21,7 +21,7 @@ const TransReplyForm = () => {
   const getDetails = async () => {
     const token=auth?.token;
      try {
-      const { data } = await axios.get(`${API}/api/transporter/details/recieved/${orderID}`, {
+      const { data } = await axios.get(`${API}api/transporter/details/recieved/${orderID}`, {
         headers: {
           Authorization:token,
         },
@@ -48,7 +48,7 @@ const TransReplyForm = () => {
     e.preventDefault();
 
     const res = await axios.post(
-      `${API}/api/transporter/createmessage`,
+      `${API}api/transporter/createmessage`,
       {
         content,
        price,
@@ -73,7 +73,7 @@ const TransReplyForm = () => {
     const token = auth.token;
     try {
       const { data } = await axios.get(
-        `${API}/api/transporter/getAllmessageRecievedbyTransporter`,
+        `${API}api/transporter/getAllmessageRecievedbyTransporter`,
         {
           headers: {
             Authorization: token,

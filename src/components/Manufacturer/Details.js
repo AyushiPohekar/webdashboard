@@ -15,7 +15,7 @@ const Details = () => {
     const getDetails = async () => {
         const token=auth.token;
          try {
-          const { data } = await axios.get(`${API}/api/manufacturer/getDetails/${orderId}`, {
+          const { data } = await axios.get(`${API}api/manufacturer/getDetails/${orderId}`, {
             headers: {
               Authorization:token,
             },

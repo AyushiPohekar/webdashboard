@@ -22,7 +22,7 @@ const handleLogin=async(e)=>{
     
     e.preventDefault();
     try {
-        const res = await axios.post(`${API}/api/users/login`, {
+        const res = await axios.post(`${API}api/users/login`, {
           email,
           password,
         });

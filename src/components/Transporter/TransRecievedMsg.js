@@ -24,7 +24,7 @@ console.log(auth)
  const getAllRecievedMessages = async () => {
   const token=auth.token;
    try {
-    const { data } = await axios.get(`${API}/api/transporter/getAllmessageRecievedbyTransporter`, {
+    const { data } = await axios.get(`${API}api/transporter/getAllmessageRecievedbyTransporter`, {
       headers: {
         Authorization:token,
       },

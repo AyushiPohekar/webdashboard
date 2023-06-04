@@ -19,7 +19,7 @@ const ManuDetailsSentMsg = () => {
     const getDetails = async () => {
         const token=auth?.token;
          try {
-          const { data } = await axios.get(`${API}/api/manufacturer/details/sent/${orderID}`, {
+          const { data } = await axios.get(`${API}api/manufacturer/details/sent/${orderID}`, {
             headers: {
               Authorization:token,
             },

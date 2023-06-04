@@ -18,7 +18,7 @@ const auth=JSON.parse(auth1)
  const getAllSentMessages = async () => {
   const token=auth.token;
    try {
-    const { data } = await axios.get(`${API}/api/manufacturer/getAllmessageSentbyManufacturer`, {
+    const { data } = await axios.get(`${API}api/manufacturer/getAllmessageSentbyManufacturer`, {
       headers: {
         Authorization:token,
       },

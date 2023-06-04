@@ -19,7 +19,7 @@ const ManuCreateMsg = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
    
-    const res = await axios.post(`${API}/api/manufacturer/createmessage`, {
+    const res = await axios.post(`${API}api/manufacturer/createmessage`, {
       content,
       address,
       to,
@@ -44,7 +44,7 @@ const ManuCreateMsg = () => {
     const token = auth.token;
     try {
       const { data } = await axios.get(
-        `${API}/api/manufacturer/getAlltransporters`,
+        `${API}api/manufacturer/getAlltransporters`,
         {
           headers: {
             Authorization: token,
@@ -72,11 +72,12 @@ const ManuCreateMsg = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               className="content"
+              required
             ></input>
           </div>
           <div className="detailsinnercontainer">
             <span className="title">Address:</span>
-            <input type="text" value={address} className="content"></input>
+            <input type="text" value={address} className="content" required></input>
           </div>
           <div className="detailsinnercontainer">
             <span className="title">From:</span>
@@ -86,6 +87,7 @@ const ManuCreateMsg = () => {
               value={from}
               onChange={(e) => setFrom(e.target.value)}
               className="content"
+              required
             ></input>
           </div>
           <div className="detailsinnercontainer">
@@ -96,6 +98,7 @@ const ManuCreateMsg = () => {
               value={to}
               onChange={(e) => setTo(e.target.value)}
               className="content"
+              required
             ></input>
           </div>
           <div className="detailsinnercontainer">

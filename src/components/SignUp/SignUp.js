@@ -16,7 +16,7 @@ const Register = () => {
     
 
     // Make a POST request to the backend API to register the user
-    const response = await fetch(`${API}/api/users/register`, {
+    const response = await fetch(`${API}api/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

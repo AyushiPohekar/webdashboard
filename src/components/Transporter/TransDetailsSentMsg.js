@@ -17,7 +17,7 @@ const TransDetailsSentMsg = () => {
     const getDetails = async () => {
         const token=auth?.token;
          try {
-          const { data } = await axios.get(`${API}/api/transporter/details/sent/${orderID}`, {
+          const { data } = await axios.get(`${API}api/transporter/details/sent/${orderID}`, {
             headers: {
               Authorization:token,
             },

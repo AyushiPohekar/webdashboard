@@ -17,13 +17,13 @@ const ManuDetailsRecMsg = () => {
     const getDetails = async () => {
         const token=auth?.token;
          try {
-          const { data } = await axios.get(`${API}/api/manufacturer/details/recieved/${orderID}`, {
+          const { data } = await axios.get(`${API}api/manufacturer/details/recieved/${orderID}`, {
             headers: {
               Authorization:token,
             },
           });
        setDetails(data?.details)
-       //console.log(data?.details)
+       console.log(data?.details)
          } catch (error) {
            console.log(error);
           
@@ -56,10 +56,10 @@ const ManuDetailsRecMsg = () => {
 </div> */}
 
 
-<div className='detailsinnercontainer'>
+{/* <div className='detailsinnercontainer'>
 <span className='title'>Price:</span>
-<span className='content'>{details.price}</span>
-</div>
+<span className='content'>{details?.price}</span>
+</div> */}
 
 </div>
 
