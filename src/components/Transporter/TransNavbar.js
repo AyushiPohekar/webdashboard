@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const TransNavbar = () => {
@@ -7,6 +7,13 @@ const TransNavbar = () => {
     localStorage.removeItem("auth");
     navigate("/")
   }
+
+
+ 
+
+
+
+
   return (
  <nav className="navbar navbar-expand-lg mainnav">
   <div className="container-fluid  ">
@@ -29,7 +36,7 @@ const TransNavbar = () => {
       </ul>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <button className="btn btn-outline-success" type="submit" >Search</button>
       </form>
       <ul>
     

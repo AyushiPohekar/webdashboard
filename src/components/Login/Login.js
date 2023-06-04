@@ -32,9 +32,9 @@ const handleLogin=async(e)=>{
           });
           localStorage.setItem('auth',JSON.stringify(res.data))
         
-          if (auth.user.role === 'Manufacturer') {
+          if (auth?.user?.role === 'Manufacturer') {
             navigate('/manufacturer');
-          } else if (auth.user.role === 'Transporter') {
+          } else if (auth?.user?.role === 'Transporter') {
             navigate('/transporter');
           }
          

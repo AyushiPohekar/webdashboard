@@ -74,7 +74,7 @@ const auth=JSON.parse(auth1)
 <div className='container text-center'>
 {sentmessages?.messages?.map((item) => (
     <div class="row maprow">
-    <div class="col"  onClick={()=>navigate(`/manufacturer/${item.orderID}`)} style={{cursor:"pointer"}}>
+    <div class="col"  onClick={()=>navigate(`/manufacturer/sent/${item.orderID}`)} style={{cursor:"pointer"}}>
     {item.orderID}
     </div>
     <div class="col">

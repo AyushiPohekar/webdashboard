@@ -45,13 +45,13 @@ const length=recivedmessages?.messages?.length;
       <div className='ordersrecieved'>
       <div class="container text-center titleContainer">
   <div class="row maprow">
-    <div class="col-lg-4 col-sm-2">
-      OrderId
+    <div class="col">
+      OrderID
     </div>
-    <div class="col-lg-4 col-sm-2">
+    <div class="col">
      TransporterName
     </div>
-    <div class="col-lg-4 col-sm-2">
+    <div class="col">
       Price
     </div>
   </div>
@@ -68,7 +68,7 @@ const length=recivedmessages?.messages?.length;
 <div className='container text-center'>
 {recivedmessages?.messages?.map((item) => (
     <div class="row maprow">
-    <div class="col"  onClick={()=>navigate(`/manufacturer/${item.orderID}`)} style={{cursor:"pointer"}}>
+    <div class="col"  onClick={()=>navigate(`/manufacturer/recieved/${item.orderID}`)} style={{cursor:"pointer"}}>
     {item.orderID}
     </div>
     <div class="col">

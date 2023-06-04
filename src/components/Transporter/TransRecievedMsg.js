@@ -12,6 +12,7 @@ const TransRecievedMsg = () => {
  const auth1=localStorage.getItem("auth");
 const auth=JSON.parse(auth1)
 console.log(auth)
+
  const [recivedmessages, setRecievedMessages] = useState();
  console.log(recivedmessages?.messages)
  //console.log(recivedmessages.messages[0]);
@@ -26,6 +27,7 @@ console.log(auth)
       },
     });
     setRecievedMessages(data)
+   
    } catch (error) {
      console.log(error);
     
@@ -34,6 +36,8 @@ console.log(auth)
  useEffect(() => {
   getAllRecievedMessages();
 }, []);
+
+
 
 const length=recivedmessages?.messages?.length;
 

@@ -17,6 +17,8 @@ import TransDetailsRecMsg from './components/Transporter/TransDetailsRecMsg';
 import TransDetailsSentMsg from './components/Transporter/TransDetailsSentMsg';
 import TransSentMsg from './components/Transporter/TransSentMsg';
 import TransReplyForm from './components/Transporter/TransReplyForm';
+import ManuDetailsRecMsg from './components/Manufacturer/ManuDetailsRecMsg';
+import ManuDetailsSentMsg from './components/Manufacturer/ManuDetailsSentMsg';
 
 function App() {
 const [auth,setAuth]=useAuth()
@@ -32,7 +34,8 @@ const [auth,setAuth]=useAuth()
       <Route path="/manufacturer" element={<MessagesRecieved/>}/>
       <Route path="/manufacturer/sent" element={<ManuMsgSent/>}/>
       <Route path="/manufacturer/createmsg" element={<ManuCreateMsg/>}/>
-      <Route path="/manufacturer/:orderId" element={<Details/>}/>
+      <Route path="/manufacturer/recieved/:orderID" element={<ManuDetailsRecMsg/>}/>
+      <Route path="/manufacturer/sent/:orderID" element={<ManuDetailsSentMsg/>}/>
       
       <Route path="/transporter" element={<Transporter/>}/>
       <Route path="/transporter/reply" element={<TransReplyForm/>}/>

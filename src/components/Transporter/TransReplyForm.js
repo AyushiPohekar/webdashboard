@@ -120,17 +120,17 @@ const TransReplyForm = () => {
             <span className="title">Price:</span>
             <input
               type="text"
-              placeholder="Enter Message"
+              placeholder="Enter Price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="content"
             ></input>
           </div>
            <div className="detailsinnercontainer">
-            <span className="title">Manufacturer Name:</span>
+            <span className="title">Manufacturer Id:</span>
             <input
               type="text"
-              placeholder="Enter Message"
+              placeholder="Select OrderID to get Manufacture ID"
               value={recipient}
              
               className="content"
