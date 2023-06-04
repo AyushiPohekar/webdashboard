@@ -22,7 +22,10 @@ Manufacture Credentials:
   
   
   Frontend deployed Link:https://647c025cc6223162cd4529f7--harmonious-seahorse-f7c126.netlify.app/
+  
   Backend deployed link:https://goclock-mk4x.onrender.com
+  
   Frontend github url:https://github.com/AyushiPohekar/webdashboard
+  
   Backend github url:https://github.com/AyushiPohekar/WebDashboardBackend
   
