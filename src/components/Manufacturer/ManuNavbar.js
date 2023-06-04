@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../../Context/SearchContext';
 
 const ManuNavbar = () => {
   const navigate=useNavigate();
@@ -7,6 +8,12 @@ const ManuNavbar = () => {
     localStorage.removeItem("auth");
     navigate("/")
   }
+
+  const { searchQuery, setSearchQuery } = useContext(SearchContext);
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
   return (
  <nav className="navbar navbar-expand-lg mainnav">
   <div className="container-fluid  ">
@@ -28,8 +35,8 @@ const ManuNavbar = () => {
        
       </ul>
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <input className="form-control me-2" type="search" placeholder="Search by OrderID" aria-label="Search" value={searchQuery} onChange={handleSearch} />
+        
       </form>
       <ul>
     

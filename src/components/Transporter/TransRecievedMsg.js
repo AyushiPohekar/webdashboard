@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "../Manufacturer/Manufacturer.css";
 import axios from 'axios';
 import { API } from '../../global';
 
 import { useNavigate } from 'react-router-dom';
 import TransReplyForm from './TransReplyForm';
+import { TransSearchContext } from '../../Context/TransSearchContext';
 
 
 const TransRecievedMsg = () => {
+  const { transsearchQuery } = useContext(TransSearchContext);
+  const [filteredMessages, setFilteredMessages] = useState([]);
   const navigate=useNavigate()
  const auth1=localStorage.getItem("auth");
 const auth=JSON.parse(auth1)
 console.log(auth)
 
  const [recivedmessages, setRecievedMessages] = useState();
- console.log(recivedmessages?.messages)
+ console.log(recivedmessages)
  //console.log(recivedmessages.messages[0]);
  //get All products
 
@@ -26,7 +29,7 @@ console.log(auth)
         Authorization:token,
       },
     });
-    setRecievedMessages(data)
+    setRecievedMessages(data?.messages)
    
    } catch (error) {
      console.log(error);
@@ -37,15 +40,26 @@ console.log(auth)
   getAllRecievedMessages();
 }, []);
 
+useEffect(() => {
+  if (transsearchQuery) {
+    const filtered = recivedmessages.filter((message) =>
+      message?.orderID?.includes(transsearchQuery)
+    );
+    setFilteredMessages(filtered);
+  } else {
+    setFilteredMessages(recivedmessages);
+  }
+}, [transsearchQuery, recivedmessages]);
 
 
-const length=recivedmessages?.messages?.length;
+
+const length=recivedmessages?.length;
 
   return (
    <div className='MessageRecievedContainer m-2'>
-    <div>
+    <div className='m-3'>
       <h1>Hello {auth.user.username}! </h1>
-      <p>You have <strong>{length}</strong> messages from manufacturers(click on order Id to see details)</p>
+      <p>You have <strong>{length} messages</strong>  from manufacturers(click on orderID to see details)</p>
       </div>
       <div className='ordersrecieved'>
       <div class="container text-center titleContainer">
@@ -72,7 +86,7 @@ const length=recivedmessages?.messages?.length;
   ))}
 </div> */}
 <div className='container text-center'>
-{recivedmessages?.messages?.map((item) => (
+{filteredMessages?.map((item) => (
     <div class="row maprow">
     <div class="col"  onClick={()=>navigate(`/transporter/recieved/${item.orderID}`)} style={{cursor:"pointer"}}>
     {item.orderID}

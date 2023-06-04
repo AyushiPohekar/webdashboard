@@ -52,10 +52,10 @@ const TransDetailsSentMsg = () => {
 </div>
 
 
-<div className='detailsinnercontainer'>
+{/* <div className='detailsinnercontainer'>
 <span className='title'>Price:</span>
 <span className='content'>{details?.price}</span>
-</div>
+</div> */}
 
 </div>
     </div>

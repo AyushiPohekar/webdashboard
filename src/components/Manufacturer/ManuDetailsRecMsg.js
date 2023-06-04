@@ -62,6 +62,7 @@ const ManuDetailsRecMsg = () => {
 </div>
 
 </div>
+
     </div>
   )
 }

@@ -21,8 +21,7 @@ import ManuDetailsRecMsg from './components/Manufacturer/ManuDetailsRecMsg';
 import ManuDetailsSentMsg from './components/Manufacturer/ManuDetailsSentMsg';
 
 function App() {
-const [auth,setAuth]=useAuth()
-// console.log(auth)
+
   return (
     <div className="App">
      <Routes>

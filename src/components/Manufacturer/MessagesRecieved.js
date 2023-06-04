@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Manufacturer.css";
 import axios from 'axios';
 import { API } from '../../global';
 import { useAuth } from '../../Context/Auth';
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../../Context/SearchContext';
 
 
 const MessagesRecieved = () => {
+  const { searchQuery } = useContext(SearchContext);
+  const [filteredMessages, setFilteredMessages] = useState([]);
   const navigate=useNavigate()
  const auth1=localStorage.getItem("auth");
 const auth=JSON.parse(auth1)
 console.log(auth)
  const [recivedmessages, setRecievedMessages] = useState();
- console.log(recivedmessages?.messages)
+
  //console.log(recivedmessages.messages[0]);
  //get All products
 
@@ -24,7 +27,7 @@ console.log(auth)
         Authorization:token,
       },
     });
-    setRecievedMessages(data)
+    setRecievedMessages(data?.messages)
    } catch (error) {
      console.log(error);
     
@@ -34,7 +37,18 @@ console.log(auth)
   getAllRecievedMessages();
 }, []);
 
-const length=recivedmessages?.messages?.length;
+useEffect(() => {
+  if (searchQuery) {
+    const filtered = recivedmessages.filter((message) =>
+      message?.orderID?.includes(searchQuery)
+    );
+    setFilteredMessages(filtered);
+  } else {
+    setFilteredMessages(recivedmessages);
+  }
+}, [searchQuery, recivedmessages]);
+
+const length=recivedmessages?.length;
 
   return (
    <div className='MessageRecievedContainer m-2'>
@@ -66,7 +80,7 @@ const length=recivedmessages?.messages?.length;
   ))}
 </div> */}
 <div className='container text-center'>
-{recivedmessages?.messages?.map((item) => (
+{filteredMessages?.map((item) => (
     <div class="row maprow">
     <div class="col"  onClick={()=>navigate(`/manufacturer/recieved/${item.orderID}`)} style={{cursor:"pointer"}}>
     {item.orderID}

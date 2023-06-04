@@ -71,6 +71,7 @@ const TransDetailsRecMsg = () => {
 </div> */}
 
 </div>
+<button onClick={()=>navigate("/transporter/reply")} className='Pushbtn' style={{marginLeft:"50%", marginTop:"20px"}}>reply</button>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../Context/Auth';
 import axios from 'axios';
 import { API } from '../../global';
@@ -10,7 +10,10 @@ const Login = () => {
     const navigate=useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [auth, setAuth] = useAuth();
+    const [auth, setAuth] = useState({
+      user: null,
+      token: "",
+    });
 
 const handleLogin=async(e)=>{
 
@@ -32,11 +35,11 @@ const handleLogin=async(e)=>{
           });
           localStorage.setItem('auth',JSON.stringify(res.data))
         
-          if (auth?.user?.role === 'Manufacturer') {
-            navigate('/manufacturer');
-          } else if (auth?.user?.role === 'Transporter') {
-            navigate('/transporter');
-          }
+          // if (auth?.user?.role === 'Manufacturer') {
+          //   navigate('/manufacturer');
+          // } else if (auth?.user?.role === 'Transporter') {
+          //   navigate('/transporter');
+          // }
          
         } else {
          toast.error(res.data.message);
@@ -46,6 +49,13 @@ const handleLogin=async(e)=>{
         toast.error(error.response?.data?.message);
       }
     };
+    useEffect(() => {
+      if (auth?.user?.role === 'Manufacturer') {
+        navigate('/manufacturer');
+      } else if (auth?.user?.role === 'Transporter') {
+        navigate('/transporter');
+      }
+    }, [auth]);
 
     
     

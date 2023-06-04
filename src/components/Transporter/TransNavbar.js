@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { TransSearchContext } from '../../Context/TransSearchContext';
 
 const TransNavbar = () => {
   const navigate=useNavigate();
@@ -8,7 +9,11 @@ const TransNavbar = () => {
     navigate("/")
   }
 
+  const { transsearchQuery, setTransSearchQuery } = useContext(TransSearchContext);
 
+  const handleSearch = (event) => {
+    setTransSearchQuery(event.target.value);
+  };
  
 
 
@@ -35,8 +40,8 @@ const TransNavbar = () => {
        
       </ul>
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit" >Search</button>
+        <input className="form-control me-2" type="search" placeholder="Search by OrderID" aria-label="Search" value={transsearchQuery} onChange={handleSearch}/>
+     
       </form>
       <ul>
     
